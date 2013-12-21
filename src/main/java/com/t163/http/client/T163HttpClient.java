@@ -41,7 +41,7 @@ public class T163HttpClient {
 	private RestTemplate restTemplate;
 
 	@Resource
-	private ErrorCodeHandler errorCodeHandler;
+	private ErrorCodeHandler t163ErrorCodeHandler;
 
 	/**
 	 * postForm
@@ -92,7 +92,7 @@ public class T163HttpClient {
 			result = restTemplate.postForObject(url, httpEntity, responseType);
 			log.info("result : " + result.toString());
 		} catch (HttpStatusCodeException e) {
-			ErrorCode errorCode = errorCodeHandler.handle(e);
+			ErrorCode errorCode = t163ErrorCodeHandler.handle(e);
 			log.info("error : " + errorCode.toString());
 		}
 		return result;
@@ -126,7 +126,7 @@ public class T163HttpClient {
 			result = restTemplate.getForObject(url, responseType);
 			log.info("result : " + result.toString());
 		} catch (HttpStatusCodeException e) {
-			ErrorCode errorCode = errorCodeHandler.handle(e);
+			ErrorCode errorCode = t163ErrorCodeHandler.handle(e);
 			log.info("error : " + errorCode.toString());
 		} catch (IllegalArgumentException e) {
 			log.error(ExceptionUtils.getFullStackTrace(e));

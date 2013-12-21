@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2013年12月17日
  */
 @Slf4j
-@Component
+@Component("t163ErrorCodeHandler")
 public class ErrorCodeHandler {
 
 	public ErrorCode handle(HttpStatusCodeException error) {

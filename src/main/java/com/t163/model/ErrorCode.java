@@ -20,7 +20,9 @@ import lombok.Data;
 @Data
 public class ErrorCode {
 	private String request;
+	private String error;
 	@JsonProperty("error_code")
 	private String errorCode;
-	private String error;
+	@JsonProperty("message_code")
+	private String messageCode;
 }
