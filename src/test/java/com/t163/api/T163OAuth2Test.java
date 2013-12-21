@@ -32,7 +32,7 @@ public class T163OAuth2Test extends AbstractTest {
 
 	@Test
 	public void accessToken() {
-		String code = "d18d17dcf4d2830137052791ee5a4d73";
+		String code = "b02f0f2c9255c3c06206d52b54da0a7d";
 		t163OAuth2.accessToken(code);
 	}
 

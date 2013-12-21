@@ -23,6 +23,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import com.t163.handler.T163ErrorCodeHandler;
+import com.t163.model.T163AccessToken;
 import com.t163.model.T163ErrorCode;
 
 import lombok.extern.slf4j.Slf4j;
@@ -89,8 +90,8 @@ public class T163HttpClient {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(mediaType);
 			HttpEntity<? extends Object> httpEntity = new HttpEntity<Object>(request, headers);
-			result = restTemplate.postForObject(url, httpEntity, responseType);
-			log.info("result : " + result.toString());
+			T163AccessToken t163AccessToken = restTemplate.postForObject(url, httpEntity, T163AccessToken.class);
+			log.info("result : " + t163AccessToken.toString());
 		} catch (HttpStatusCodeException e) {
 			T163ErrorCode t163ErrorCode = t163ErrorCodeHandler.handle(e);
 			log.info("error : " + t163ErrorCode.toString());

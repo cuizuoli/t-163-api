@@ -19,8 +19,11 @@ import lombok.Data;
  */
 @Data
 public class T163AccessToken {
-	@JsonProperty("oauth_token")
-	private String oauthToken;
-	@JsonProperty("oauth_token_secreate")
-	private int oauthTokenSecreate;
+	private String uid;
+	@JsonProperty("expires_in")
+	private String expiresIn;
+	@JsonProperty("refresh_token")
+	private String refreshToken;
+	@JsonProperty("access_token")
+	private String accessToken;
 }

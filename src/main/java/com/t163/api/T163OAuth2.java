@@ -77,25 +77,13 @@ public class T163OAuth2 {
 	 * @return
 	 */
 	public T163AccessToken accessToken(String code) {
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
 		map.add("client_id", appKey);
 		map.add("client_secret", appSecret);
 		map.add("grant_type", "authorization_code");
 		map.add("code", code);
 		map.add("redirect_uri", redirectUri);
-		String result = t163HttpClient.postForm(OAUTH2_ACCESS_TOKEN, map, String.class);
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			T163AccessToken t163AccessToken = objectMapper.readValue(result, T163AccessToken.class);
-			return t163AccessToken;
-		} catch (JsonParseException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		} catch (JsonMappingException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		} catch (IOException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		}
-		return null;
+		return t163HttpClient.postForm(OAUTH2_ACCESS_TOKEN, map, T163AccessToken.class);
 	}
 
 	public T163TokenInfo getTokenInfo(String accessToken) {
