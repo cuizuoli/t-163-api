@@ -43,4 +43,19 @@ public class T163Users {
 		return t163HttpClient.get(url, T163User.class);
 	}
 
+	/**
+	 * http://open.t.163.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E7%94%A8%E6%88%B7%E7%9A%84%E4%BF%A1%E6%81%AF(users/show)
+	 * @param screenName
+	 * @param accessToken
+	 * @return
+	 */
+	public T163User showByName(String screenName, String accessToken) {
+		String url = new StringBuffer()
+			.append(USERS_SHOW_URL)
+			.append("?screen_name=").append(screenName)
+			.append("&access_token=").append(accessToken)
+			.toString();
+		return t163HttpClient.get(url, T163User.class);
+	}
+
 }

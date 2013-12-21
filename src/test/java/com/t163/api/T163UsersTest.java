@@ -34,4 +34,9 @@ public class T163UsersTest extends AbstractTest {
 		t163Users.show(dataMap.get("userId"), dataMap.get("accessToken"));
 	}
 
+	@Test
+	public void showByName() {
+		t163Users.showByName(dataMap.get("screenName"), dataMap.get("accessToken"));
+	}
+
 }
