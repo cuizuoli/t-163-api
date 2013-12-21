@@ -32,7 +32,6 @@ public class T163OAuth2 {
 
 	private static final String OAUTH2_AUTHORIZE = "https://api.t.163.com/oauth2/authorize";
 	private static final String OAUTH2_ACCESS_TOKEN = "https://api.t.163.com/oauth2/access_token";
-	private static final String OAUTH2_GET_TOKEN_INFO = "https://api.t.163.com/oauth2/get_oauth2_token.json";
 
 	@Value("#{t163Properties['t163.appKey']}")
 	private String appKey;
