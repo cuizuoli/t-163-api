@@ -18,9 +18,9 @@
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
-		<file>logs/weibo-api-debug.log</file>
+		<file>logs/t163-api-debug.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>logs/weibo-api-debug.%i</fileNamePattern>
+			<fileNamePattern>logs/t163-api-debug.%i</fileNamePattern>
 			<minIndex>1</minIndex>
 			<maxIndex>3</maxIndex>
 		</rollingPolicy>
@@ -38,9 +38,9 @@
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
-		<file>logs/weibo-api-info.log</file>
+		<file>logs/t163-api-info.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>logs/weibo-api-info.%i</fileNamePattern>
+			<fileNamePattern>logs/t163-api-info.%i</fileNamePattern>
 			<minIndex>1</minIndex>
 			<maxIndex>3</maxIndex>
 		</rollingPolicy>
@@ -58,9 +58,9 @@
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
-		<file>logs/weibo-api-warn.log</file>
+		<file>logs/t163-api-warn.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>logs/weibo-api-warn.%i</fileNamePattern>
+			<fileNamePattern>logs/t163-api-warn.%i</fileNamePattern>
 			<minIndex>1</minIndex>
 			<maxIndex>3</maxIndex>
 		</rollingPolicy>
@@ -78,9 +78,9 @@
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
-		<file>logs/weibo-api-error.log</file>
+		<file>logs/t163-api-error.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>logs/weibo-api-error.%i</fileNamePattern>
+			<fileNamePattern>logs/t163-api-error.%i</fileNamePattern>
 			<minIndex>1</minIndex>
 			<maxIndex>3</maxIndex>
 		</rollingPolicy>

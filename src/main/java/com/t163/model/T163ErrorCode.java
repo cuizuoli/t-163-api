@@ -1,5 +1,5 @@
 /*
- * @(#)ErrorCode.java $version 2013年12月17日
+ * @(#)T163ErrorCode.java $version 2013年12月21日
  *
  * Copyright 2013 NHN ST. All rights Reserved.
  * NHN ST PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
@@ -13,12 +13,12 @@ import lombok.Data;
 
 /**
  * nhn t-163-api
- * com.t163.model.ErrorCode.java
+ * com.t163.model.T163ErrorCode.java
  * @author st13902
- * @date 2013年12月17日
+ * @date 2013年12月21日
  */
 @Data
-public class ErrorCode {
+public class T163ErrorCode {
 	private String request;
 	private String error;
 	@JsonProperty("error_code")

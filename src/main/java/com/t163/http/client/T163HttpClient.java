@@ -22,8 +22,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-import com.t163.handler.ErrorCodeHandler;
-import com.t163.model.ErrorCode;
+import com.t163.handler.T163ErrorCodeHandler;
+import com.t163.model.T163ErrorCode;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,7 +41,7 @@ public class T163HttpClient {
 	private RestTemplate restTemplate;
 
 	@Resource
-	private ErrorCodeHandler t163ErrorCodeHandler;
+	private T163ErrorCodeHandler t163ErrorCodeHandler;
 
 	/**
 	 * postForm
@@ -92,8 +92,8 @@ public class T163HttpClient {
 			result = restTemplate.postForObject(url, httpEntity, responseType);
 			log.info("result : " + result.toString());
 		} catch (HttpStatusCodeException e) {
-			ErrorCode errorCode = t163ErrorCodeHandler.handle(e);
-			log.info("error : " + errorCode.toString());
+			T163ErrorCode t163ErrorCode = t163ErrorCodeHandler.handle(e);
+			log.info("error : " + t163ErrorCode.toString());
 		}
 		return result;
 	}
@@ -126,8 +126,8 @@ public class T163HttpClient {
 			result = restTemplate.getForObject(url, responseType);
 			log.info("result : " + result.toString());
 		} catch (HttpStatusCodeException e) {
-			ErrorCode errorCode = t163ErrorCodeHandler.handle(e);
-			log.info("error : " + errorCode.toString());
+			T163ErrorCode t163ErrorCode = t163ErrorCodeHandler.handle(e);
+			log.info("error : " + t163ErrorCode.toString());
 		} catch (IllegalArgumentException e) {
 			log.error(ExceptionUtils.getFullStackTrace(e));
 		} catch (IllegalAccessException e) {
