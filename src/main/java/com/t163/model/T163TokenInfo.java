@@ -21,6 +21,6 @@ import lombok.Data;
 public class T163TokenInfo {
 	@JsonProperty("access_token")
 	private String accessToken;
-	@JsonProperty("expire_in")
-	private int expireIn;
+	@JsonProperty("refresh_token")
+	private int refreshToken;
 }

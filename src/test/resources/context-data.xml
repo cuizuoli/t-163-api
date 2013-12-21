@@ -14,7 +14,7 @@
 	http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
 	<util:map id="dataMap">
-		<entry key="accessToken" value="dc0209a4ebb2b7cd7fb41dedc4f4337a"/>
+		<entry key="accessToken" value="41cbccc5266c876afa92bb3d63ef7108"/>
 	</util:map>
 
 </beans>

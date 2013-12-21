@@ -7,14 +7,8 @@
 
 package com.t163.api;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -72,7 +66,7 @@ public class T163OAuth2 {
 	}
 
 	/**
-	 * accessToken
+	 * http://open.t.163.com/wiki/index.php?title=Oauth2/access_token
 	 * @param code
 	 * @return
 	 */
@@ -86,22 +80,15 @@ public class T163OAuth2 {
 		return t163HttpClient.postForm(OAUTH2_ACCESS_TOKEN, map, T163AccessToken.class);
 	}
 
+	/**
+	 * http://open.t.163.com/wiki/index.php?title=Oauth2/get_oauth2_token
+	 * @param accessToken
+	 * @return
+	 */
 	public T163TokenInfo getTokenInfo(String accessToken) {
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("access_token", accessToken);
-		String result = t163HttpClient.postForm(OAUTH2_GET_TOKEN_INFO, map, String.class);
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			T163TokenInfo t163TokenInfo = objectMapper.readValue(result, T163TokenInfo.class);
-			return t163TokenInfo;
-		} catch (JsonParseException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		} catch (JsonMappingException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		} catch (IOException e) {
-			log.error(ExceptionUtils.getFullStackTrace(e));
-		}
-		return null;
+		return t163HttpClient.postForm(OAUTH2_GET_TOKEN_INFO, map, T163TokenInfo.class);
 	}
 
 }

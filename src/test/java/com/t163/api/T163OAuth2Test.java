@@ -7,6 +7,8 @@
 
 package com.t163.api;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -23,6 +25,9 @@ import com.t163.enums.Display;
 public class T163OAuth2Test extends AbstractTest {
 
 	@Resource
+	private Map<String, String> dataMap;
+
+	@Resource
 	private T163OAuth2 t163OAuth2;
 
 	@Test
@@ -32,8 +37,13 @@ public class T163OAuth2Test extends AbstractTest {
 
 	@Test
 	public void accessToken() {
-		String code = "9c0fd5fa5334c89ee1a4702ad8f77975";
+		String code = "39bcb38ca2bfe3a1aaa652e9d21d8621";
 		t163OAuth2.accessToken(code);
+	}
+
+	@Test
+	public void getTokenInfo() {
+		t163OAuth2.getTokenInfo(dataMap.get("accessToken"));
 	}
 
 }
