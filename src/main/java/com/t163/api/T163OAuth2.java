@@ -17,7 +17,6 @@ import org.springframework.util.MultiValueMap;
 import com.t163.enums.Display;
 import com.t163.http.client.T163HttpClient;
 import com.t163.model.T163AccessToken;
-import com.t163.model.T163TokenInfo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -78,17 +77,6 @@ public class T163OAuth2 {
 		map.add("code", code);
 		map.add("redirect_uri", redirectUri);
 		return t163HttpClient.postForm(OAUTH2_ACCESS_TOKEN, map, T163AccessToken.class);
-	}
-
-	/**
-	 * http://open.t.163.com/wiki/index.php?title=Oauth2/get_oauth2_token
-	 * @param accessToken
-	 * @return
-	 */
-	public T163TokenInfo getTokenInfo(String accessToken) {
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-		map.add("access_token", accessToken);
-		return t163HttpClient.postForm(OAUTH2_GET_TOKEN_INFO, map, T163TokenInfo.class);
 	}
 
 }

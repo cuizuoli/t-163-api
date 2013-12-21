@@ -41,9 +41,4 @@ public class T163OAuth2Test extends AbstractTest {
 		t163OAuth2.accessToken(code);
 	}
 
-	@Test
-	public void getTokenInfo() {
-		t163OAuth2.getTokenInfo(dataMap.get("accessToken"));
-	}
-
 }
