@@ -4,7 +4,7 @@
 	<groupId>com.t163</groupId>
 	<artifactId>t-163-api</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2-ALPHA</version>
+	<version>0.1-BETA</version>
 	<name>t-163-api</name>
 	<url>http://t.163.com/</url>
 	<properties>
