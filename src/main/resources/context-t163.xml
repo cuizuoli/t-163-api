@@ -13,27 +13,27 @@
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-	<util:properties id="t163Properties" location="classpath:t163.properties"></util:properties>
+	<util:properties id="t163Properties" location="classpath:t163.properties"/>
 
-	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+	<bean id="t163ObjectMapper" class="com.t163.http.client.ObjectMapperFactoryBean"/>
+
+	<bean id="t163RestTemplate" class="org.springframework.web.client.RestTemplate">
 		<property name="requestFactory">
 			<bean class="com.t163.http.client.TrustClientHttpRequestFactory">
 				<property name="sslSocketFactory">
-					<bean class="com.t163.http.client.TrustSSLSocketFactoryFactoryBean"></bean>
+					<bean class="com.t163.http.client.TrustSSLSocketFactoryFactoryBean"/>
 				</property>
 			</bean>
 		</property>
 		<property name="messageConverters">
 			<array>
 				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-					<property name="objectMapper">
-						<bean class="com.t163.http.client.ObjectMapperFactoryBean"/>
-					</property>
+					<property name="objectMapper" ref="t163ObjectMapper"/>
 				</bean>
 				<bean class="org.springframework.http.converter.FormHttpMessageConverter">
 					<property name="charset" value="UTF-8"></property>
 				</bean>
-				<bean class="org.springframework.http.converter.StringHttpMessageConverter"></bean>
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
 			</array>
 		</property>
 	</bean>
